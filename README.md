@@ -27,6 +27,13 @@ Then, run:
 $ docker-compose up
 ```
 
+You need to run `sudo chown -R 5050:5050 ./docker/pgadmin` If you get this following message:
+
+> pgadmin    | WARNING: Failed to set ACL on the directory containing the configuration database:
+> pgadmin    |            [Errno 1] Operation not permitted: '/var/lib/pgadmin'
+> pgadmin    | HINT   : You may need to manually set the permissions on
+> pgadmin    |          /var/lib/pgadmin to allow pgadmin to write to it.
+
 You are done, you can visit your Symfony application on the following URL: `http://headless-app.test`.
 
 _Note :_ you can rebuild all Docker images by running:
@@ -39,7 +46,7 @@ $ docker-compose build
 
 Here are the `docker-compose` built images:
 
-* `db`: This is the MySQL database container (can be changed to postgresql or whatever in `docker-compose.yml` file),
+* `db`: This is the Postgres database container (can be changed to postgresql or whatever in `docker-compose.yml` file),
 * `php`: This is the PHP-FPM container including the application volume mounted on,
 * `nginx`: This is the Nginx webserver container in which php volumes are mounted too,
 
@@ -49,10 +56,10 @@ This results in the following running containers:
 > $ docker-compose ps
    Name                 Command               State                 Ports
 ---------------------------------------------------------------------------------------
-db           docker-entrypoint.sh --def ...   Up      0.0.0.0:3306->3306/tcp, 33060/tcp
-nginx        /docker-entrypoint.sh nginx      Up      443/tcp, 0.0.0.0:80->80/tcp
-php-fpm      php-fpm8 -F                      Up      0.0.0.0:9000->9001/tcp
-phpmyadmin   /docker-entrypoint.sh apac ...   Up      0.0.0.0:8081->80/tcp
+db        docker-entrypoint.sh postgres   Up      0.0.0.0:3306->5432/tcp
+nginx     /docker-entrypoint.sh nginx     Up      443/tcp, 0.0.0.0:80->80/tcp
+pgadmin   /entrypoint.sh                  Up      443/tcp, 0.0.0.0:5050->80/tcp
+php-fpm   php-fpm8 -F                     Up      0.0.0.0:9000->9001/tcp
 ```
 
 # Environment Customizations
