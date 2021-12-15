@@ -2,6 +2,7 @@
 /.docker/logs
 /.docker/symfony
 /.docker/db
+/.docker/pgadmin
 
 # PhpStorm
 .idea

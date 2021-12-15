@@ -29,16 +29,18 @@ services:
         depends_on:
             - db
 
-    phpmyadmin:
-        image: phpmyadmin
-        container_name: phpmyadmin
+    pgadmin:
+        container_name: pgadmin
+        image: dpage/pgadmin4
         environment:
-            - PMA_HOST=db
-            - PMA_USER=root
-            - PMA_PASSWORD=${POSTGRES_PASSWORD}
+            PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
+            PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
+            PGADMIN_CONFIG_SERVER_MODE: 'False'
+        volumes:
+            - ./.docker/pgadmin:/var/lib/pgadmin
         ports:
-            - "${PHPMYADMIN_PORT}:80"
-        restart: always
+            - "${PGADMIN_PORT:-5050}:80"
+        restart: unless-stopped
 
     nginx:
         container_name: nginx
