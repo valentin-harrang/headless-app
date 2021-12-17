@@ -4,7 +4,7 @@ namespace App\DataFixtures;
 
 use App\Entity\Feed;
 use App\Entity\FeedCategory;
-use Constants;
+use App\Helper\Constants;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\String\Slugger\SluggerInterface;

@@ -5,7 +5,7 @@ namespace App\Service;
 use App\Entity\Feed;
 use App\Entity\News;
 use App\Model\NewsLequipe;
-use Constants;
+use App\Helper\Constants;
 use DateTime;
 use Doctrine\Common\Annotations\AnnotationReader;
 use Doctrine\ORM\EntityManagerInterface;
