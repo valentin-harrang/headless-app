@@ -3,6 +3,8 @@ FROM alpine:3.13
 RUN apk add --no-cache \
     coreutils \
     gettext \
+    acl \
+    openssl \
     php8-fpm \
     php8-ctype \
     php8-curl \

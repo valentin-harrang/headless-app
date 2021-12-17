@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Helper;
+
 class Constants
 {
     public const NEWS_FEED_DEFAULT_LIMIT             = 25;
@@ -114,6 +116,15 @@ class Constants
         'esport'         => [
             'url'  => self::LEQUIPE_ESPORT_RSS_FEED_URL,
             'name' => 'Esport',
+        ],
+    ];
+    // /!\ Only for demo because it's unsecure
+    public const USER_FIXTURES                      = [
+        [
+            'username' => 'contact@valentin-harrang.fr',
+            'email'    => 'contact@valentin-harrang.fr',
+            'name'     => 'Valentin',
+            'password' => '123456!',
         ],
     ];
 }
