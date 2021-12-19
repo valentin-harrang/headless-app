@@ -10,6 +10,8 @@ class NewsLequipe
 
     public string $pubDate;
 
+    public string $image = '';
+
     public function getTitle(): string
     {
         return $this->title;
@@ -38,5 +40,15 @@ class NewsLequipe
     public function setPubDate(string $pubDate): void
     {
         $this->pubDate = $pubDate;
+    }
+
+    public function getImage(): string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): void
+    {
+        $this->image = $image;
     }
 }

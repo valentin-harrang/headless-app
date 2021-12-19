@@ -44,6 +44,11 @@ class News
      */
     protected string $slug = '';
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    protected string $image = '';
+
     public function getId(): ?int
     {
         return $this->id;
@@ -102,5 +107,15 @@ class News
     public function setSlug(string $slug): void
     {
         $this->slug = $slug;
+    }
+
+    public function getImage(): string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): void
+    {
+        $this->image = $image;
     }
 }

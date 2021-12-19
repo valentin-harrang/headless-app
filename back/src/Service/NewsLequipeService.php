@@ -82,6 +82,10 @@ class NewsLequipeService
             [new JsonEncoder()],
         );
 
+        foreach ($newsArray['channel']['item'] as $key => $item) {
+            $newsArray['channel']['item'][$key]['image'] = $item['enclosure']['@attributes']['url'];
+        }
+
         $newsAsJson = $serializer->serialize($newsArray['channel']['item'], 'json');
 
         return $serializer->deserialize($newsAsJson, 'App\Model\NewsLequipe[]', 'json');
@@ -108,6 +112,7 @@ class NewsLequipeService
                     $news->setPublicationDate(new DateTime($newsLequipeElement->getPubDate()));
                     $news->setFeed($lequipeFeed);
                     $news->setSlug($newsSlug);
+                    $news->setImage($newsLequipeElement->getImage());
 
                     $this->entityManager->persist($news);
                 }
