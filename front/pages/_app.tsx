@@ -1,7 +1,6 @@
 import Head from "next/head";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-
 import "../styles/globals.css";
 import { userService } from "../api/queries/users";
 import Nav from "../components/Nav";
@@ -29,7 +28,7 @@ const App = ({ Component, pageProps }: AppProps) => {
     };
   }, []);
 
-  function authCheck(url: string) {
+  const authCheck = (url: string) => {
     // redirect to login page if accessing a private page and not logged in
     const publicPaths = ["/login"];
     const path = url.split("?")[0];
@@ -42,7 +41,7 @@ const App = ({ Component, pageProps }: AppProps) => {
     } else {
       setAuthorized(true);
     }
-  }
+  };
 
   return (
     <>
