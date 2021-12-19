@@ -8,9 +8,18 @@ body {
 
 a {
   color: inherit;
+  cursor: pointer;
   text-decoration: none;
 }
 
 * {
   box-sizing: border-box;
+}
+
+h2 {
+  font-size: 1.2rem;
+}
+
+ul {
+  margin-bottom: 0;
 }
