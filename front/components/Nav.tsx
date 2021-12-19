@@ -19,14 +19,18 @@ const Nav = () => {
 
   return (
     <nav className="navbar navbar-expand navbar-dark bg-dark">
-      <div className="navbar-nav">
-        <NavLink href="/" exact className="nav-item nav-link">
-          Accueil
-        </NavLink>
-        <a onClick={logout} className="nav-item nav-link">
-          Déconnexion
-        </a>
-      </div>
+      <ul className="navbar-nav ml-auto">
+        <li className="nav-item">
+          <NavLink href="/" exact className="nav-link">
+            Accueil
+          </NavLink>
+        </li>
+        <li className="nav-item">
+          <a onClick={logout} className="nav-link">
+            Déconnexion
+          </a>
+        </li>
+      </ul>
     </nav>
   );
 };

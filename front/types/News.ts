@@ -5,4 +5,5 @@ export interface News {
   publicationDate: Date;
   slug: string;
   feed: string;
+  image: string;
 }

@@ -13,9 +13,7 @@ export const getNews = async () => {
 };
 
 export const getOneNewsById = async (id: number) => {
-  const response = await fetchWrapper.get(
+  return await fetchWrapper.get(
     `${publicRuntimeConfig.apiUrl}${NEWS_ENDPOINT}/${id}`
   );
-  console.log(response);
-  return response;
 };
