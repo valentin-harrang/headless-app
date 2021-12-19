@@ -25,3 +25,8 @@ $ cd back
 
 - See [Backend](back/README.md)
 - Finally, see [Frontend](front/README.md)
+
+## Hosting
+
+- Frontend is hosted on Vercel at this URL: https://headless-app-4mirtdbnr-valentin-harrang.vercel.app/
+- Backend is hosted on a VPS using Traefik and Docker at this URL: https://dev.valentin-harrang.fr/
