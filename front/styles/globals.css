@@ -23,3 +23,14 @@ h2 {
 ul {
   margin-bottom: 0;
 }
+
+@media (max-width: 767px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+}
+
+.btn-back {
+  margin-bottom: 1rem;
+  width: max-content;
+}

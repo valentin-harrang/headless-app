@@ -3,6 +3,7 @@ import ErrorPage from "next/error";
 import { useEffect, useState } from "react";
 import { getOneNewsById } from "../../api/queries/news";
 import { News } from "../../types/News";
+import Link from "next/link";
 
 const Post = () => {
   const router = useRouter();
@@ -28,10 +29,16 @@ const Post = () => {
 
   if (errorStatusCode === 200) {
     if (news) {
-      const { title, description, publicationDate } = news;
+      const { title, description, publicationDate, image } = news;
       return (
-        <div>
-          <h1>{title}</h1>
+        <div className="d-flex flex-column">
+          <Link href="/">
+            <a title="Page précédente" className="btn btn-primary btn-back">
+              Retour
+            </a>
+          </Link>
+          <img src={image} alt={title} className="mb-4 img-fluid" />
+          <h1 className="mb-4">{title}</h1>
           <p>{description}</p>
           <i>
             {" "}
