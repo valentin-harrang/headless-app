@@ -9,8 +9,8 @@ const loginRoute = "/login";
 const usersApiEndpoint = "/users";
 
 const userSubject = new BehaviorSubject(
-  process.browser &&
-    JSON.parse(localStorage.getItem(userLocalStorageKey) || "{}")
+  // @ts-ignore
+  process.browser && JSON.parse(localStorage.getItem(userLocalStorageKey))
 );
 
 const login = (username: string, password: string) => {
