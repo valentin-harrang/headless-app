@@ -1,10 +1,6 @@
-import { AppContext } from "next/app";
-import getConfig from "next/config";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { fetchWrapper } from "../api/helpers/fetch-wrapper";
 import { getNews } from "../api/queries/news";
-import { userService } from "../api/queries/users";
 import { News } from "../types/News";
 
 const Home = () => {
