@@ -110,3 +110,13 @@ You will need to re-build the php container for this value to take effect.
 Configure your IDE to use port 5902 for XDebug.
 Docker versions below 18.03.1 don't support the Docker variable `host.docker.internal`.  
 In that case you'd have to swap out `host.docker.internal` with your machine IP address in php-fpm/xdebug.ini.
+
+## Possible improvements
+
+- Add possibility to choose feed category via API and Symfony command (for example: "Tennis" in l'Equipe feed)
+- Add possibility to choose feed via API and Symfony command (for example: Le Monde instead of l'Equipe)
+- When there is a Symfony error, Nginx throws a 502 error (bad gateway)
+
+## Blocking points
+
+I didn't encounter any major difficulties but spent a lot of time trying to fix Nginx error 502 without success.
