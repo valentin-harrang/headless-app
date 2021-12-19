@@ -1,5 +1,6 @@
 import { AppContext } from "next/app";
 import getConfig from "next/config";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { fetchWrapper } from "../api/helpers/fetch-wrapper";
 import { getNews } from "../api/queries/news";
@@ -21,15 +22,19 @@ const Home = () => {
     <>
       <h1>{`Dernières news l'Equipe`}</h1>
       {news &&
-        news.map((singleNews: News) => (
-          <div key={singleNews.id} className="card mt-4">
+        news.map(({ title, description, publicationDate, id }: News) => (
+          <div key={id} className="card mt-4">
             <div className="card-header">
-              <h2>{singleNews.title}</h2>
+              <h2>
+                <Link href="/news/[id]" as={`/news/${id}`}>
+                  <a>{title}</a>
+                </Link>
+              </h2>
             </div>
-            <div className="card-body">{singleNews.description}</div>
+            <div className="card-body">{description}</div>
             <div className="card-footer">
               Publié le
-              {` ${new Date(singleNews.publicationDate)
+              {` ${new Date(publicationDate)
                 .toLocaleDateString("fr-FR", {
                   month: "long",
                   day: "numeric",
