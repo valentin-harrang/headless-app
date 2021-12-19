@@ -29,6 +29,7 @@ headless-app - back
 
 - Replace `JWT_PASSPHRASE` value by your jwt passphrase in `.env` file
 
+- Create the database if it does not already exist: `php bin/console doctrine:database:create`
 
 - Execute migrations: `php bin/console doctrine:migrations:migrate`
 
