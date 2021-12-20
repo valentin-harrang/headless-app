@@ -6,6 +6,7 @@ This is an headless app that uses API Platform with Symfony 5 (latest version), 
 # Prerequisites
 
 - Docker with Docker Compose
+- Npm
 
 # Project installation
 
