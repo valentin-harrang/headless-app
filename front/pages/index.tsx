@@ -1,6 +1,8 @@
 import Link from "next/link";
+import router from "next/router";
 import { useEffect, useState } from "react";
 import { getNews } from "../api/queries/news";
+import { userService } from "../api/queries/users";
 import { News } from "../types/News";
 
 const Home = () => {
@@ -8,7 +10,13 @@ const Home = () => {
 
   useEffect(() => {
     (async () => {
-      setNews(await getNews());
+      try {
+        const newsFromApi = await getNews();
+        setNews(newsFromApi);
+      }
+      catch(error) {
+        userService.logout();
+      }
     })();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
