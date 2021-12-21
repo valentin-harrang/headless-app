@@ -1,5 +1,4 @@
 import Link from "next/link";
-import router from "next/router";
 import { useEffect, useState } from "react";
 import { getNews } from "../api/queries/news";
 import { userService } from "../api/queries/users";
